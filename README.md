@@ -1,9 +1,9 @@
 # Go RESTful API Starter Kit (Boilerplate)
 
-[![GoDoc](https://godoc.org/github.com/qiangxue/go-rest-api?status.png)](http://godoc.org/github.com/qiangxue/go-rest-api)
-[![Build Status](https://github.com/garaekz/go-rest-api/workflows/build/badge.svg)](https://github.com/garaekz/go-rest-api/actions?query=workflow%3Abuild)
-[![Code Coverage](https://codecov.io/gh/qiangxue/go-rest-api/branch/master/graph/badge.svg)](https://codecov.io/gh/qiangxue/go-rest-api)
-[![Go Report](https://goreportcard.com/badge/github.com/qiangxue/go-rest-api)](https://goreportcard.com/report/github.com/qiangxue/go-rest-api)
+[![GoDoc](https://godoc.org/github.com/garaekz/go-rest-api?status.png)](http://godoc.org/github.com/garaekz/go-rest-api)
+[![Build Status](https://github.com/garaekz/go-rest-api/actions/workflows/build.yml/badge.svg)](https://github.com/garaekz/go-rest-api/actions/workflows/build.yml)
+[![Codecov](https://codecov.io/gh/garaekz/go-rest-api/graph/badge.svg?token=7IF0YCSFY5)](https://codecov.io/gh/garaekz/go-rest-api)
+[![Go Report](https://goreportcard.com/badge/github.com/garaekz/go-rest-api)](https://goreportcard.com/report/github.com/garaekz/go-rest-api)
 
 This starter kit is designed to get you up and running with a project structure optimized for developing
 RESTful API services in Go. It promotes the best practices that follow the [SOLID principles](https://en.wikipedia.org/wiki/SOLID)
@@ -26,17 +26,22 @@ The kit provides the following features right out of the box:
 The kit uses the following Go packages which can be easily replaced with your own favorite ones
 since their usages are mostly localized and abstracted. 
 
-* Routing: [ozzo-routing](https://github.com/go-ozzo/ozzo-routing)
+* Routing: [ozzo-routing](https://github.com/garaekz/ozzo-routing)
 * Database access: [ozzo-dbx](https://github.com/go-ozzo/ozzo-dbx)
 * Database migration: [golang-migrate](https://github.com/golang-migrate/migrate)
 * Data validation: [ozzo-validation](https://github.com/go-ozzo/ozzo-validation)
 * Logging: [zap](https://github.com/uber-go/zap)
-* JWT: [jwt-go](https://github.com/dgrijalva/jwt-go)
+* JWT: [jwt-go](https://github.com/golang-jwt/jwt)
+
+## Disclaimer
+This is a fork of [go-rest-api](https://github.com/qiangxue/go-rest-api) by [qiangxue](https://github.com/qiangxue). This is intented to keep updating dependencies and adding new features to the original project such as other authentication methods, new database support, etc.
+
+The README.md file is also a fork of the original project, so it may contain outdated information until further updates.
 
 ## Getting Started
 
 If this is your first time encountering Go, please follow [the instructions](https://golang.org/doc/install) to
-install Go on your computer. The kit requires **Go 1.13 or above**.
+install Go on your computer. The kit requires **Go 1.22 or above**.
 
 [Docker](https://www.docker.com/get-started) is also needed if you want to try the kit without setting up your
 own database server. The kit requires **Docker 17.05 or higher** for the multi-stage build support.
