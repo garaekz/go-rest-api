@@ -81,8 +81,8 @@ testdata: ## populate the database with test data
 	@docker exec -it postgres_go_restful psql -U postgres -d go_restful -f /testdata/testdata.sql
 
 .PHONY: lint
-lint: ## run golint on all Go package
-	@golint $(PACKAGES)
+lint: ## run revive to lint all Go packages
+	@revive -config revive.toml $(PACKAGES)
 
 .PHONY: fmt
 fmt: ## run "go fmt" on all Go packages
