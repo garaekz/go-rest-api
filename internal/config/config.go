@@ -1,7 +1,7 @@
 package config
 
 import (
-	"io/ioutil"
+	"os"
 
 	"github.com/garaekz/go-rest-api/pkg/log"
 	validation "github.com/go-ozzo/ozzo-validation/v4"
@@ -13,6 +13,13 @@ const (
 	defaultServerPort         = 8080
 	defaultJWTExpirationHours = 72
 )
+
+type OSFileSystem struct{}
+
+// FileSystem represents a file system.
+type FileSystem interface {
+	ReadFile(name string) ([]byte, error)
+}
 
 // Config represents an application configuration.
 type Config struct {
@@ -35,7 +42,7 @@ func (c Config) Validate() error {
 }
 
 // Load returns an application configuration which is populated from the given configuration file and environment variables.
-func Load(file string, logger log.Logger) (*Config, error) {
+func Load(file string, logger log.Logger, fs FileSystem) (*Config, error) {
 	// default config
 	c := Config{
 		ServerPort:    defaultServerPort,
@@ -43,7 +50,7 @@ func Load(file string, logger log.Logger) (*Config, error) {
 	}
 
 	// load from YAML config file
-	bytes, err := ioutil.ReadFile(file)
+	bytes, err := fs.ReadFile(file)
 	if err != nil {
 		return nil, err
 	}
@@ -62,4 +69,8 @@ func Load(file string, logger log.Logger) (*Config, error) {
 	}
 
 	return &c, err
+}
+
+func (OSFileSystem) ReadFile(name string) ([]byte, error) {
+	return os.ReadFile(name)
 }
