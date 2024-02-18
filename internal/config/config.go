@@ -14,6 +14,7 @@ const (
 	defaultJWTExpirationHours = 72
 )
 
+// OSFileSystem represents a real OS file system.
 type OSFileSystem struct{}
 
 // FileSystem represents a file system.
@@ -71,6 +72,7 @@ func Load(file string, logger log.Logger, fs FileSystem) (*Config, error) {
 	return &c, err
 }
 
+// ReadFile reads the file from the real OS file system.
 func (OSFileSystem) ReadFile(name string) ([]byte, error) {
 	return os.ReadFile(name)
 }

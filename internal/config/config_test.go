@@ -108,7 +108,10 @@ func TestOSFileSystem_ReadFile(t *testing.T) {
 
 	content := []byte("hello world")
 	if _, err := tmpfile.Write(content); err != nil {
-		tmpfile.Close()
+		tmpErr := tmpfile.Close()
+		if tmpErr != nil {
+			logger.Error(tmpErr)
+		}
 		logger.Error(err)
 	}
 	if err := tmpfile.Close(); err != nil {
