@@ -2,12 +2,15 @@ package auth
 
 import (
 	"context"
-	"github.com/dgrijalva/jwt-go"
+	"net/http"
+
 	routing "github.com/go-ozzo/ozzo-routing/v2"
 	"github.com/go-ozzo/ozzo-routing/v2/auth"
-	"github.com/qiangxue/go-rest-api/internal/entity"
-	"github.com/qiangxue/go-rest-api/internal/errors"
-	"net/http"
+
+	// "github.com/golang-jwt/jwt/v5"
+	"github.com/garaekz/go-rest-api/internal/entity"
+	"github.com/garaekz/go-rest-api/internal/errors"
+	"github.com/golang-jwt/jwt"
 )
 
 // Handler returns a JWT-based authentication middleware.

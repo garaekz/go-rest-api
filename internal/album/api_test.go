@@ -1,13 +1,14 @@
 package album
 
 import (
-	"github.com/qiangxue/go-rest-api/internal/auth"
-	"github.com/qiangxue/go-rest-api/internal/entity"
-	"github.com/qiangxue/go-rest-api/internal/test"
-	"github.com/qiangxue/go-rest-api/pkg/log"
 	"net/http"
 	"testing"
 	"time"
+
+	"github.com/garaekz/go-rest-api/internal/auth"
+	"github.com/garaekz/go-rest-api/internal/entity"
+	"github.com/garaekz/go-rest-api/internal/test"
+	"github.com/garaekz/go-rest-api/pkg/log"
 )
 
 func TestAPI(t *testing.T) {

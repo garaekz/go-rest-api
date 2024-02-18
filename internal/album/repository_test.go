@@ -3,12 +3,13 @@ package album
 import (
 	"context"
 	"database/sql"
-	"github.com/qiangxue/go-rest-api/internal/entity"
-	"github.com/qiangxue/go-rest-api/internal/test"
-	"github.com/qiangxue/go-rest-api/pkg/log"
-	"github.com/stretchr/testify/assert"
 	"testing"
 	"time"
+
+	"github.com/garaekz/go-rest-api/internal/entity"
+	"github.com/garaekz/go-rest-api/internal/test"
+	"github.com/garaekz/go-rest-api/pkg/log"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestRepository(t *testing.T) {
