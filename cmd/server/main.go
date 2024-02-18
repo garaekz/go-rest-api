@@ -17,10 +17,10 @@ import (
 	"github.com/garaekz/go-rest-api/pkg/accesslog"
 	"github.com/garaekz/go-rest-api/pkg/dbcontext"
 	"github.com/garaekz/go-rest-api/pkg/log"
+	routing "github.com/garaekz/ozzo-routing"
+	"github.com/garaekz/ozzo-routing/content"
+	"github.com/garaekz/ozzo-routing/cors"
 	dbx "github.com/go-ozzo/ozzo-dbx"
-	routing "github.com/go-ozzo/ozzo-routing/v2"
-	"github.com/go-ozzo/ozzo-routing/v2/content"
-	"github.com/go-ozzo/ozzo-routing/v2/cors"
 	_ "github.com/lib/pq"
 )
 

@@ -7,9 +7,9 @@ import (
 	"github.com/garaekz/go-rest-api/internal/errors"
 	"github.com/garaekz/go-rest-api/pkg/accesslog"
 	"github.com/garaekz/go-rest-api/pkg/log"
-	routing "github.com/go-ozzo/ozzo-routing/v2"
-	"github.com/go-ozzo/ozzo-routing/v2/content"
-	"github.com/go-ozzo/ozzo-routing/v2/cors"
+	routing "github.com/garaekz/ozzo-routing"
+	"github.com/garaekz/ozzo-routing/content"
+	"github.com/garaekz/ozzo-routing/cors"
 )
 
 // MockRoutingContext creates a routing.Conext for testing handlers.

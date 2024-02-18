@@ -7,7 +7,7 @@ import (
 	"github.com/garaekz/go-rest-api/internal/entity"
 	"github.com/garaekz/go-rest-api/internal/errors"
 	"github.com/garaekz/go-rest-api/pkg/log"
-	"github.com/golang-jwt/jwt"
+	"github.com/golang-jwt/jwt/v5"
 )
 
 // Service encapsulates the authentication logic.

@@ -8,7 +8,7 @@ import (
 	"testing"
 
 	"github.com/garaekz/go-rest-api/pkg/log"
-	routing "github.com/go-ozzo/ozzo-routing/v2"
+	routing "github.com/garaekz/ozzo-routing"
 	validation "github.com/go-ozzo/ozzo-validation/v4"
 	"github.com/stretchr/testify/assert"
 )

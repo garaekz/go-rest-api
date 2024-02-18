@@ -2,7 +2,7 @@ package test
 
 import (
 	"bytes"
-	routing "github.com/go-ozzo/ozzo-routing/v2"
+	routing "github.com/garaekz/ozzo-routing"
 	"github.com/stretchr/testify/assert"
 	"net/http"
 	"net/http/httptest"

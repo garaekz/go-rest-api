@@ -3,8 +3,8 @@ package dbcontext
 import (
 	"context"
 	"database/sql"
+	routing "github.com/garaekz/ozzo-routing"
 	dbx "github.com/go-ozzo/ozzo-dbx"
-	routing "github.com/go-ozzo/ozzo-routing/v2"
 	_ "github.com/lib/pq" // initialize posgresql for test
 	"github.com/stretchr/testify/assert"
 	"net/http"

@@ -3,10 +3,10 @@ module github.com/garaekz/go-rest-api
 go 1.22
 
 require (
+	github.com/garaekz/ozzo-routing v0.0.0-20240218050548-3abe038d680a
 	github.com/go-ozzo/ozzo-dbx v1.5.0
-	github.com/go-ozzo/ozzo-routing/v2 v2.4.0
 	github.com/go-ozzo/ozzo-validation/v4 v4.3.0
-	github.com/golang-jwt/jwt v3.2.2+incompatible
+	github.com/golang-jwt/jwt/v5 v5.2.0
 	github.com/google/uuid v1.6.0
 	github.com/lib/pq v1.10.9
 	github.com/qiangxue/go-env v1.0.1
@@ -17,7 +17,6 @@ require (
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
-	github.com/golang-jwt/jwt/v5 v5.2.0 // indirect
 	github.com/golang/gddo v0.0.0-20210115222349-20d68f94ee1f // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	go.uber.org/multierr v1.11.0 // indirect

@@ -4,13 +4,12 @@ import (
 	"context"
 	"net/http"
 
-	routing "github.com/go-ozzo/ozzo-routing/v2"
-	"github.com/go-ozzo/ozzo-routing/v2/auth"
+	routing "github.com/garaekz/ozzo-routing"
+	"github.com/garaekz/ozzo-routing/auth"
 
-	// "github.com/golang-jwt/jwt/v5"
 	"github.com/garaekz/go-rest-api/internal/entity"
 	"github.com/garaekz/go-rest-api/internal/errors"
-	"github.com/golang-jwt/jwt"
+	"github.com/golang-jwt/jwt/v5"
 )
 
 // Handler returns a JWT-based authentication middleware.

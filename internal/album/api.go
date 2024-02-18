@@ -6,7 +6,7 @@ import (
 	"github.com/garaekz/go-rest-api/internal/errors"
 	"github.com/garaekz/go-rest-api/pkg/log"
 	"github.com/garaekz/go-rest-api/pkg/pagination"
-	routing "github.com/go-ozzo/ozzo-routing/v2"
+	routing "github.com/garaekz/ozzo-routing"
 )
 
 // RegisterHandlers sets up the routing of the HTTP handlers.

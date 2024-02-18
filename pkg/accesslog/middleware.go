@@ -6,8 +6,8 @@ import (
 	"time"
 
 	"github.com/garaekz/go-rest-api/pkg/log"
-	routing "github.com/go-ozzo/ozzo-routing/v2"
-	"github.com/go-ozzo/ozzo-routing/v2/access"
+	routing "github.com/garaekz/ozzo-routing"
+	"github.com/garaekz/ozzo-routing/access"
 )
 
 // Handler returns a middleware that records an access log message for every HTTP request being processed.
