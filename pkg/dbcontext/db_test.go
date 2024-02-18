@@ -3,14 +3,15 @@ package dbcontext
 import (
 	"context"
 	"database/sql"
-	routing "github.com/garaekz/ozzo-routing"
-	dbx "github.com/go-ozzo/ozzo-dbx"
-	_ "github.com/lib/pq" // initialize posgresql for test
-	"github.com/stretchr/testify/assert"
 	"net/http"
 	"net/http/httptest"
 	"os"
 	"testing"
+
+	routing "github.com/garaekz/ozzo-routing"
+	dbx "github.com/go-ozzo/ozzo-dbx"
+	_ "github.com/lib/pq" // initialize posgresql for test
+	"github.com/stretchr/testify/assert"
 )
 
 const DSN = "postgres://127.0.0.1/go_restful?sslmode=disable&user=postgres&password=postgres"
@@ -51,7 +52,7 @@ func TestDB_Transactional(t *testing.T) {
 		assert.Equal(t, 2, runCountQuery(t, db))
 
 		// failed transaction, but queries made outside of the transaction
-		err = dbc.Transactional(context.Background(), func(ctx context.Context) error {
+		err = dbc.Transactional(context.Background(), func(_ context.Context) error {
 			_, err := dbc.With(context.Background()).Insert("dbcontexttest", dbx.Params{"id": "3", "name": "name1"}).Execute()
 			assert.Nil(t, err)
 			_, err = dbc.With(context.Background()).Insert("dbcontexttest", dbx.Params{"id": "4", "name": "name2"}).Execute()

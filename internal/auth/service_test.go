@@ -20,7 +20,7 @@ func Test_service_Authenticate(t *testing.T) {
 	assert.NotEmpty(t, token)
 }
 
-func Test_service_authenticate(t *testing.T) {
+func Test_service_authenticate_function(t *testing.T) {
 	logger, _ := log.NewForTest()
 	s := service{"test", 100, logger}
 	assert.Nil(t, s.authenticate(context.Background(), "unknown", "bad"))

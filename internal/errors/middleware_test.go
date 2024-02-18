@@ -81,14 +81,14 @@ func handlerOK(c *routing.Context) error {
 	return c.Write("test")
 }
 
-func handlerError(c *routing.Context) error {
+func handlerError(_ *routing.Context) error {
 	return fmt.Errorf("abc")
 }
 
-func handlerHTTPError(c *routing.Context) error {
+func handlerHTTPError(_ *routing.Context) error {
 	return NotFound("")
 }
 
-func handlerPanic(c *routing.Context) error {
+func handlerPanic(_ *routing.Context) error {
 	panic("xyz")
 }

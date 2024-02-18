@@ -19,7 +19,7 @@ func JWTHandler(verificationKey string) routing.Handler {
 
 // BearerHandler returns a Bearer token-based authentication middleware.
 func BearerHandler(verificationKey string) routing.Handler {
-	return auth.Bearer(func(c *routing.Context, token string) (auth.Identity, error) {
+	return auth.Bearer(func(c *routing.Context, _ string) (auth.Identity, error) {
 		return handleBearerToken(c, verificationKey)
 	})
 }
@@ -36,7 +36,7 @@ func handleJWTToken(c *routing.Context, token *jwt.Token) error {
 }
 
 // handleBearerToken validates the bearer token and returns the user identity if the token is valid.
-func handleBearerToken(c *routing.Context, token string) (Identity, error) {
+func handleBearerToken(_ *routing.Context, token string) (Identity, error) {
 	if token == "secret" {
 		return entity.User{}, nil
 	}

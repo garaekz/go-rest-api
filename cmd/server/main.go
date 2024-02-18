@@ -103,7 +103,7 @@ func buildHandler(logger log.Logger, db *dbcontext.DB, cfg *config.Config) http.
 
 // logDBQuery returns a logging function that can be used to log SQL queries.
 func logDBQuery(logger log.Logger) dbx.QueryLogFunc {
-	return func(ctx context.Context, t time.Duration, sql string, rows *sql.Rows, err error) {
+	return func(ctx context.Context, t time.Duration, sql string, _ *sql.Rows, err error) {
 		if err == nil {
 			logger.With(ctx, "duration", t.Milliseconds(), "sql", sql).Info("DB query successful")
 		} else {
@@ -114,7 +114,7 @@ func logDBQuery(logger log.Logger) dbx.QueryLogFunc {
 
 // logDBExec returns a logging function that can be used to log SQL executions.
 func logDBExec(logger log.Logger) dbx.ExecLogFunc {
-	return func(ctx context.Context, t time.Duration, sql string, result sql.Result, err error) {
+	return func(ctx context.Context, t time.Duration, sql string, _ sql.Result, err error) {
 		if err == nil {
 			logger.With(ctx, "duration", t.Milliseconds(), "sql", sql).Info("DB execution successful")
 		} else {
