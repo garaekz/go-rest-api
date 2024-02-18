@@ -1,4 +1,4 @@
-module github.com/qiangxue/go-rest-api
+module github.com/garaekz/go-rest-api
 
 go 1.22
 
