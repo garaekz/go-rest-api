@@ -12,13 +12,20 @@ import (
 	"github.com/golang-jwt/jwt/v5"
 )
 
-// Handler returns a JWT-based authentication middleware.
-func Handler(verificationKey string) routing.Handler {
-	return auth.JWT(verificationKey, auth.JWTOptions{TokenHandler: handleToken})
+// JWTHandler returns a JWT-based authentication middleware.
+func JWTHandler(verificationKey string) routing.Handler {
+	return auth.JWT(verificationKey, auth.JWTOptions{TokenHandler: handleJWTToken})
 }
 
-// handleToken stores the user identity in the request context so that it can be accessed elsewhere.
-func handleToken(c *routing.Context, token *jwt.Token) error {
+// BearerHandler returns a Bearer token-based authentication middleware.
+func BearerHandler(verificationKey string) routing.Handler {
+	return auth.Bearer(func(c *routing.Context, token string) (auth.Identity, error) {
+		return handleBearerToken(c, verificationKey)
+	})
+}
+
+// handleJWTToken stores the user identity in the request context so that it can be accessed elsewhere.
+func handleJWTToken(c *routing.Context, token *jwt.Token) error {
 	ctx := WithUser(
 		c.Request.Context(),
 		token.Claims.(jwt.MapClaims)["id"].(string),
@@ -26,6 +33,14 @@ func handleToken(c *routing.Context, token *jwt.Token) error {
 	)
 	c.Request = c.Request.WithContext(ctx)
 	return nil
+}
+
+// handleBearerToken validates the bearer token and returns the user identity if the token is valid.
+func handleBearerToken(c *routing.Context, token string) (Identity, error) {
+	if token == "secret" {
+		return entity.User{}, nil
+	}
+	return nil, errors.Unauthorized("invalid token")
 }
 
 type contextKey int

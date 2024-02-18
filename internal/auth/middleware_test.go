@@ -22,7 +22,7 @@ func TestCurrentUser(t *testing.T) {
 }
 
 func TestHandler(t *testing.T) {
-	assert.NotNil(t, Handler("test"))
+	assert.NotNil(t, JWTHandler("test"))
 }
 
 func Test_handleToken(t *testing.T) {
@@ -30,7 +30,7 @@ func Test_handleToken(t *testing.T) {
 	ctx, _ := test.MockRoutingContext(req)
 	assert.Nil(t, CurrentUser(ctx.Request.Context()))
 
-	err := handleToken(ctx, &jwt.Token{
+	err := handleJWTToken(ctx, &jwt.Token{
 		Claims: jwt.MapClaims{
 			"id":   "100",
 			"name": "test",
@@ -52,4 +52,20 @@ func TestMocks(t *testing.T) {
 	ctx, _ = test.MockRoutingContext(req)
 	assert.Nil(t, MockAuthHandler(ctx))
 	assert.NotNil(t, CurrentUser(ctx.Request.Context()))
+}
+
+func Test_handleBearerToken(t *testing.T) {
+	req, _ := http.NewRequest("GET", "http://example.com", nil)
+	ctx, _ := test.MockRoutingContext(req)
+	assert.Nil(t, CurrentUser(ctx.Request.Context()))
+
+	// Test valid token
+	identity, err := handleBearerToken(ctx, "secret")
+	assert.Nil(t, err)
+	assert.NotNil(t, identity)
+
+	// Test invalid token
+	identity, err = handleBearerToken(ctx, "invalid")
+	assert.NotNil(t, err)
+	assert.Nil(t, identity)
 }
