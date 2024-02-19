@@ -71,7 +71,7 @@ db-start: ## start the database server
 
 .PHONY: db-stop
 db-stop: ## stop the database server
-	docker stop postgres
+	docker stop postgres_go_restful
 
 .PHONY: testdata
 testdata: ## populate the database with test data
