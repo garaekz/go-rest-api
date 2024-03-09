@@ -1,9 +1,9 @@
 name: build
 on:
   push:
-    branches: [ develop ]
+    branches: [develop]
   pull_request:
-    branches: [ master, develop ]
+    branches: [master, develop]
 
 jobs:
   build:
@@ -19,7 +19,8 @@ jobs:
         ports:
           - 5432/tcp
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
-
+    env:
+      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
     steps:
       - name: Set up Go 1.22
         uses: actions/setup-go@v4
@@ -60,7 +61,7 @@ jobs:
           make test-cover
 
       - name: Upload coverage to Codecov
-        if: secrets.CODECOV_TOKEN != ''  # Ejecutar este paso solo si CODECOV_TOKEN está presente
+        if: env.CODECOV_TOKEN != ''
         uses: codecov/codecov-action@v4.0.1
         with:
           fail_ci_if_error: true
